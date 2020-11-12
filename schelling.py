@@ -104,28 +104,29 @@ class World:
         """ Moves the given agent from their corrent location to their new,
         given location, (new_x, new_y). """
 
-        # TODO: Implement this function.
 
         # Step 1: Append agent's current location this world's (i.e. self's)
         # open_spots. Note: You can use the agent's get_location method as 
         # part of your solution.
+        self.open_spots.append(agent.get_location())
 
-        pass # replace this line with step 1's implementation
+        
 
         # Step 2: Update this world's grid so agent is located at new spot.
         # Caution: Make sure you get the order of new_x and new_y right.
 
-        pass # replace this line with step 2's implementation
+        self.grid[new_y][new_x] = agent
 
         # Step 3: Update this world's grid so agent's old location is cleared
         # (i.e. set to None). Note: agent.x and agent.y are the agent's old
         # location.
 
-        pass # replace this line with step 3's implementation
+        l = agent.get_location()
+        self.grid[l[1]][l[0]] = None
 
         # Step 4: Update agent's location using its move_to method.
 
-        pass # replace this line with step 4's implementation
+        agent.move_to(new_x, new_y)
 
 
     def display_turn(self):
